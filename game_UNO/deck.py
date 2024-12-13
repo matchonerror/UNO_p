@@ -3,11 +3,17 @@ from game_UNO import Card, Color, Rank, CardType
 
 class Deck:
     def __init__(self):
+        """
+              Initialise le paquet de cartes et mélange les cartes.
+              """
         self.cards = self.create_deck()
         random.shuffle(self.cards)
         self.discard_pile = []
 
     def create_deck(self):
+        """
+               Crée un paquet de cartes UNO avec les cartes numérotées et les cartes d'action.
+               """
         deck = []
 
         # Add number cards and action cards for each color
@@ -33,9 +39,15 @@ class Deck:
         return deck
 
     def deal(self):
+        """
+                Distribue une carte du paquet. Retourne None si le paquet est vide.
+                """
         if not self.cards:
             print(f"Deck is empty!")
             return None
         return self.cards.pop()
     def top_discard(self):
+        """
+                Retourne la carte du dessus de la pile de défausse.
+                """
         return self.discard_pile[-1] if self.discard_pile else None
